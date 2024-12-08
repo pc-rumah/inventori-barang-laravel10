@@ -21,7 +21,7 @@ class KategoriBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.create');
     }
 
     /**
@@ -29,7 +29,20 @@ class KategoriBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'nama_kategori' => 'required|unique:kategori,nama_kategori',
+            ],
+            [
+                'nama_kategori.required' => 'Nama Kategori tidak boleh kosong',
+                'nama_kategori.unique' => 'Nama Kategori sudah ada',
+            ]
+        );
+
+        Kategori::create([
+            'nama_kategori' => $request->nama_kategori,
+        ]);
+        return redirect()->route('kategori.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -45,7 +58,8 @@ class KategoriBarangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kategori = Kategori::find($id);
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
@@ -53,7 +67,22 @@ class KategoriBarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+                'nama_kategori' => 'required|unique:kategori,nama_kategori,' . $id,
+            ]
+        );
+
+        $kategori = Kategori::find($id);
+
+        // pastikan data kategori ditemukan
+        if (!$kategori) {
+            return redirect()->route('kategori.index')->with('error', 'Data tidak ditemukan');
+        }
+
+        $kategori->nama_kategori = $request->input('nama_kategori');
+        $kategori->save();
+        return redirect()->route('kategori.index')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -61,6 +90,10 @@ class KategoriBarangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kategori = Kategori::find($id);
+        // dd($kategori);
+        // hapus data
+        $kategori->delete();
+        return redirect()->route('kategori.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

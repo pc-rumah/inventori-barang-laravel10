@@ -56,11 +56,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#features">Features</a></li>
                     @if (Auth::check())
-                        @if (Auth::user()->hasRole('admin'))
-                            <li><a href="/admin">Dashboard</a></li>
-                        @elseif (Auth::user()->hasRole('staff'))
-                            <li><a href="/admin">Dashboard</a></li>
-                        @endif
+                        <li><a href="/dashboard">Dashboard</a></li>
                     @else
                         <li><a href="/login">Login</a></li>
                     @endif

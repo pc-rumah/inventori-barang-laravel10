@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="card w-100">
                 <div class="card-body p-4">
-                    <a class="btn btn-primary m-1" href="{{ route('kategori.create') }}">Tambah Kategori</a>
+                    <a class="btn btn-primary m-1" href="{{ route('user.create') }}">Tambah User</a>
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
@@ -13,13 +13,13 @@
                             <thead class="text-dark fs-4">
                                 <tr>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Id</h6>
+                                        <h6 class="fw-semibold mb-0">No</h6>
                                     </th>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Kategori</h6>
+                                        <h6 class="fw-semibold mb-0">Nama User</h6>
                                     </th>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Aksi</h6>
+                                        <h6 class="fw-semibold mb-0">Role</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Aksi</h6>
@@ -27,22 +27,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($kategori->isEmpty())
+                                @if ($users->isEmpty())
                                     <td class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Kategori Belum Ada</h6>
                                     </td>
                                 @else
-                                    @foreach ($kategori as $item)
+                                    @foreach ($users as $item)
                                         <tr>
                                             <td class="border-bottom-0">
                                                 <h6 class="fw-semibold mb-0">{{ $loop->iteration }}</h6>
                                             </td>
                                             <td class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-1">{{ $item->nama_kategori }}</h6>
+                                                <h6 class="fw-semibold mb-1">{{ $item->name }}</h6>
                                             </td>
                                             <td class="border-bottom-0">
-                                                <a href="{{ route('kategori.edit', $item) }}"
-                                                    class="btn btn-warning mb-2">Edit</a>
+                                                @if ($item->roles->isNotEmpty())
+                                                    {{ $item->roles->first()->name }}
+                                                    <!-- Jika ada banyak role -->
+                                                @else
+                                                    Tidak ada role
+                                                @endif
                                             </td>
                                             <td class="border-bottom-0">
                                                 <button type="button" class="btn btn-danger mb-2" data-bs-toggle="modal"
@@ -61,19 +65,20 @@
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title"
                                                                         id="confirmDeleteModalLabel-{{ $item->id }}">
-                                                                        Konfirmasi Hapus Kategori
+                                                                        Konfirmasi Hapus User
                                                                     </h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    Apakah Anda yakin ingin menghapus kategori ini?
+                                                                    Apakah Anda yakin ingin menghapus User
+                                                                    {{ $item->name }}?
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Batal</button>
                                                                     <form id="deleteForm-{{ $item->id }}"
-                                                                        action="{{ route('kategori.destroy', $item->id) }}"
+                                                                        action="{{ route('user.destroy', $item->id) }}"
                                                                         method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
