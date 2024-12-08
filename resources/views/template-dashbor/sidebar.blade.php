@@ -30,7 +30,7 @@
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Menu</span>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item mb-2">
                         <a class="sidebar-link {{ Request::is('kategori') ? '' : 'collapsed' }}"
                             href="{{ route('kategori.index') }}" aria-expanded="false">
                             <span>
@@ -39,8 +39,9 @@
                             <span class="hide-menu">Kelola Kategori</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <li class="sidebar-item mb-2">
+                        <a class="sidebar-link {{ Request::is('user') ? '' : 'collapsed' }}"
+                            href="{{ route('user.index') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-user"></i>
                             </span>
@@ -48,8 +49,9 @@
                         </a>
                     </li>
                 @endif
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                <li class="sidebar-item mb-2">
+                    <a class="sidebar-link {{ Request::is('laporan' ? '' : 'collapse') }}"
+                        href="{{ route('laporan.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-archive"></i>
                         </span>
@@ -57,7 +59,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('barang') ? '' : 'collapsed' }}"
+                        href="{{ route('barang.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-package"></i>
                         </span>
