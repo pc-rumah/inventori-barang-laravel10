@@ -4,7 +4,36 @@
         <div class="container-fluid">
             <div class="card w-100">
                 <div class="card-body p-4">
-                    <a class="btn btn-primary m-1" href="{{ route('barang.create') }}">Export Excel</a>
+                    <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#export-excel">Export Excel</a>
+                    <div class="modal fade" id="export-excel" tabindex="-1" aria-labelledby="export-excel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="export-excel">
+                                        Export Data</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('laporan.export') }}" method="GET">
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="start_date">Tanggal Mulai</label>
+                                                <input type="date" name="start_date" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="end_date">Tanggal Akhir</label>
+                                                <input type="date" name="end_date" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-2 d-flex align-items-end">
+                                                <button type="submit" class="btn btn-success">Export</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
@@ -31,10 +60,7 @@
                                         <h6 class="fw-semibold mb-0">Kondisi</h6>
                                     </th>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Aksi</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Aksi</h6>
+                                        <h6 class="fw-semibold mb-0">Tanggal</h6>
                                     </th>
                                 </tr>
                             </thead>
@@ -53,7 +79,7 @@
                                                 <h6 class="fw-semibold mb-1">{{ $item->nama_barang }}</h6>
                                             </td>
                                             <td class="border-bottom-0">
-                                                <img style="w-75" src="{{ asset('/storage/' . $item->gambar) }}"
+                                                <img style="" src="{{ asset('/storage/' . $item->gambar) }}"
                                                     class="card-img" alt="{{ $item->nama_barang }}">
                                             </td>
                                             <td class="border-bottom-0">
@@ -73,7 +99,9 @@
                                                     @endif
                                                 </h6>
                                             </td>
-
+                                            <td class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-1">{{ $item->created_at->format('d-m-Y') }}</h6>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -81,7 +109,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
