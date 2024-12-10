@@ -8,6 +8,11 @@
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
+                    @if (session('error'))
+                        <div id="alert-error" class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0 align-middle">
                             <thead class="text-dark fs-4">

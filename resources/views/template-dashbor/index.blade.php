@@ -7,6 +7,13 @@
     <title>Dashboard</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('dashbor/assets/images/logos/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('dashbor/assets/css/styles.min.css') }}" />
+    <style>
+        .card-img {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>

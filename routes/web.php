@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
 Route::middleware(['auth', 'verified', 'role:admin|staff'])->group(function () {
     Route::resource('/barang', KelolaBarangController::class);
     Route::resource('/laporan', LaporanBarangController::class);
+    Route::get('/laporan-export', [LaporanBarangController::class, 'export'])->name('laporan.export');
 });
 
 require __DIR__ . '/auth.php';
