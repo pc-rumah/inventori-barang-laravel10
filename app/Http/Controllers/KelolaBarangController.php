@@ -14,7 +14,7 @@ class KelolaBarangController extends Controller
      */
     public function index()
     {
-        $barang = Barang::all();
+        $barang = Barang::paginate(10);
         $kategori = Kategori::all();
         return view('barang.index', compact('barang', 'kategori'));
     }
