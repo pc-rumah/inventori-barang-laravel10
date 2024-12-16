@@ -4,8 +4,17 @@
         <div class="container-fluid">
             <div class="card w-100">
                 <div class="card-body p-4">
-                    <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#export-excel">Export Excel</a>
-                    <div class="modal fade" id="export-excel" tabindex="-1" aria-labelledby="export-excel" aria-hidden="true">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#export-excel">Export
+                                Excel</a>
+                        </div>
+                        <div class="col-lg-8">
+                            {{ $barang->links() }}
+                        </div>
+                    </div>
+                    <div class="modal fade" id="export-excel" tabindex="-1" aria-labelledby="export-excel"
+                        aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

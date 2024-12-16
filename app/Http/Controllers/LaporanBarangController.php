@@ -16,7 +16,7 @@ class LaporanBarangController extends Controller
      */
     public function index()
     {
-        $barang = Barang::all();
+        $barang = Barang::paginate(10);
         return view('laporan.index', compact('barang'));
     }
 

@@ -4,10 +4,20 @@
         <div class="container-fluid">
             <div class="card w-100">
                 <div class="card-body p-4">
-                    <a class="btn btn-primary m-1" href="{{ route('barang.create') }}">Tambah Barang</a>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a class="btn btn-primary m-1" href="{{ route('barang.create') }}">Tambah Barang</a>
+                        </div>
+                        <div class="col-lg-8">
+                            {{ $barang->links() }}
+                        </div>
+                    </div>
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
+                    {{-- @php
+                        dd(session()->all());
+                    @endphp --}}
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0 align-middle">
                             <thead class="text-dark fs-4">
