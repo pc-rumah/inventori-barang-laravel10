@@ -15,6 +15,9 @@
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
+                    {{-- @php
+                        dd(session()->all());
+                    @endphp --}}
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0 align-middle">
                             <thead class="text-dark fs-4">

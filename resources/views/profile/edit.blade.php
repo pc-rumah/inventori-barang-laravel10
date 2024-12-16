@@ -1,29 +1,47 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+@extends('template-dashbor.index')
+@section('content')
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            @if ($errors->updatePassword->any())
+                <div id="alert-error" class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->updatePassword->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-            </div>
+            @endif
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+
+            @if ($errors->any())
+                <div id="alert-error" class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+
                 </div>
-            </div>
+            @endif
+
+            {{-- @php
+                dd(session()->all());
+            @endphp --}}
+
+            @if (session('status') === 'profile-updated')
+                <div id="alert-sukses" class="alert alert-success">Berhasil Meng-Update Profile</div>
+            @endif
+            @if (session('status') === 'password-updated')
+                <div id="alert-sukses" class="alert alert-success">Berhasil Meng-Update Password</div>
+            @endif
+
+            @include('profile.partials.update-profile-information-form')
+            @include('profile.partials.update-password-form')
+            @if (Auth::user()->hasRole('admin'))
+            @else
+                @include('profile.partials.delete-user-form')
+            @endif
         </div>
     </div>
-</x-app-layout>
+@endsection

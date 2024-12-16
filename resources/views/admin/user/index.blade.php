@@ -105,6 +105,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card w-100">
+                <div class="card-body p-4">
+                    <h2>Note Jika menambah User Baru:</h2>
+                    <p>
+                        Default Email: nama@gmail.com
+                    </p>
+                    <p>
+                        Default Password: 12345678
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

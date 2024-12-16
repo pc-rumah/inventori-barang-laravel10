@@ -39,7 +39,7 @@ class KelolaUserController extends Controller
         // Buat user baru
         $user = User::create([
             'name' => $request->nama_user,
-            'email' => strtolower(str_replace(' ', '', $request->nama_user)) . '@example.com', // Generate email (sesuaikan jika perlu)
+            'email' => strtolower(str_replace(' ', '', $request->nama_user)) . '@gmail.com', // Generate email (sesuaikan jika perlu)
             'password' => Hash::make('12345678'), // Default password (ganti jika perlu)
         ]);
 

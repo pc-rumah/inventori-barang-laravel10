@@ -34,13 +34,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
-    Route::get('/admin', [DashboardAdminController::class, 'index'])->name('admin.index');
+    // Route::get('/admin', [DashboardAdminController::class, 'index'])->name('admin.index');
     Route::resource('/kategori', KategoriBarangController::class);
     Route::resource('/user', KelolaUserController::class);
 });
 
 Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
-    Route::get('/staff', [DashboardStaffController::class, 'index'])->name('staff.index');
+    // Route::get('/staff', [DashboardStaffController::class, 'index'])->name('staff.index');
 });
 
 Route::middleware(['auth', 'verified', 'role:admin|staff'])->group(function () {
