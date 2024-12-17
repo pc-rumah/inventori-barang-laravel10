@@ -5,12 +5,48 @@
             <div class="card w-100">
                 <div class="card-body p-4">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                             <a class="btn btn-primary m-1" href="{{ route('barang.create') }}">Tambah Barang</a>
                         </div>
-                        <div class="col-lg-8">
-                            {{ $barang->links() }}
+
+                        <div class="col-lg-3 mt-1">
+                            <form action="{{ url('barang') }}" method="GET">
+                                <input type="search" name="cari" class="form-control" id="cari"
+                                    placeholder="Cari Nama Barang" value="{{ Request::get('cari') }}"
+                                    aria-describedby="cariHelp">
                         </div>
+                        <div class="col-lg-1 mt-1">
+                            <button class="btn btn-primary">Search</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-2 mt-1">
+                            <form action="{{ url('barang') }}" method="GET">
+                                <select class="form-select" name="kategori" id="kategori">
+                                    <option value="">Pilih Kategori</option>
+                                    @foreach ($kategori as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
+                        <div class="col-lg-2 mt-1">
+                            <select class="form-select" name="kondisi" id="kondisi">
+                                <option value="">Pilih Kondisi</option>
+                                <option value="Prima">Prima</option>
+                                <option value="Cukup Baik">Cukup Baik</option>
+                                <option value="Rusak">Rusak</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 mt-1">
+                            <button class="btn btn-primary">
+                                Filter
+                            </button>
+                            </form>
+                        </div>
+
+
                     </div>
                     @if (Session::has('success'))
                         <div id="alert-sukses" class="alert alert-success">{{ Session::get('success') }}</div>
@@ -104,7 +140,8 @@
                                                                         id="confirmDelete{{ $item->id }}Label">
                                                                         Konfirmasi Hapus Data</h5>
                                                                     <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     Apakah Anda yakin ingin menghapus Data ini?
@@ -132,6 +169,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        {{ $barang->links() }}
                     </div>
                 </div>
 

@@ -10,7 +10,7 @@
                                 Excel</a>
                         </div>
                         <div class="col-lg-8">
-                            {{ $barang->links() }}
+
                         </div>
                     </div>
                     <div class="modal fade" id="export-excel" tabindex="-1" aria-labelledby="export-excel"
@@ -116,6 +116,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        {{ $barang->links() }}
                     </div>
                 </div>
             </div>

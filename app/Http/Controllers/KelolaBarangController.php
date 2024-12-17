@@ -12,10 +12,38 @@ class KelolaBarangController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $barang = Barang::paginate(10);
+        // Ambil input pencarian, kategori, dan kondisi
+        $cari = $request->cari;
+        $kategori = $request->kategori;
+        $kondisi = $request->kondisi;
+
+        // Bangun query untuk Barang
+        $query = Barang::query();
+
+        // Filter berdasarkan pencarian
+        if ($cari) {
+            $query->where('nama_barang', 'like', "%$cari%");
+        }
+
+        // Filter berdasarkan kategori
+        if ($kategori) {
+            $query->where('kategori_id', $kategori);
+        }
+
+        // Filter berdasarkan kondisi
+        if ($kondisi) {
+            $query->where('kondisi', $kondisi);
+        }
+
+        // Eksekusi query dengan paginasi
+        $barang = $query->paginate(10);
+
+        // Ambil semua kategori untuk dropdown
         $kategori = Kategori::all();
+
+        // Return view dengan data yang dibutuhkan
         return view('barang.index', compact('barang', 'kategori'));
     }
 
