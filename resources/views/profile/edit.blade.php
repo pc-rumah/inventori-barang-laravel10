@@ -12,8 +12,6 @@
                 </div>
             @endif
 
-
-
             @if ($errors->any())
                 <div id="alert-error" class="alert alert-danger">
                     <ul>

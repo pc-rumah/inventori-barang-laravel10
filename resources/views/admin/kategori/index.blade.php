@@ -17,6 +17,12 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session('error'))
+                        <div id="alert-error" class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                    @php
+                        // dd(session()->all());
+                    @endphp
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0 align-middle">
                             <thead class="text-dark fs-4">
