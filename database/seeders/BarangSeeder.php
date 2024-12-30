@@ -16,14 +16,15 @@ class BarangSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach (range(1, 50) as $index) {
+        foreach (range(1, 10) as $index) {
             Barang::create([
                 'nama_barang' => $faker->word,
                 'kategori_id' => $faker->numberBetween(1, 4),
                 'jumlah' => $faker->numberBetween(1, 100),
                 'kondisi' => $faker->randomElement(['Prima', 'Cukup Baik', 'Rusak']),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
-                'gambar' => $faker->image('public/storage/image', 640, 480, null, false),
+                // 'gambar' => $faker->image('public/storage/upload/gambar/', 640, 480, null, false),
+                'gambar' => fake()->randomElement(['/upload/gambar/marmut.jpg']),
             ]);
         }
     }

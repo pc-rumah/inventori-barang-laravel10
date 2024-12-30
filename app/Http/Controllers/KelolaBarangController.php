@@ -20,7 +20,7 @@ class KelolaBarangController extends Controller
         $kondisi = $request->kondisi;
 
         // Bangun query untuk Barang
-        $query = Barang::query();
+        $query = Barang::query()->orderBy('created_at', 'desc');
 
         // Filter berdasarkan pencarian
         if ($cari) {
