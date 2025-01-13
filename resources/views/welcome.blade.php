@@ -22,21 +22,9 @@
     <!-- Vendor CSS Files -->
     <link href="{{ asset('landing/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('landing/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('landing/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('landing/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('landing/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('landing/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     <!-- Main CSS File -->
     <link href="{{ asset('landing/assets/css/main.css') }}" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: Selecao
-  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -45,8 +33,6 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Inventori</h1>
             </a>
 
@@ -125,31 +111,21 @@
                             magna aliqua.
                         </p>
                         <ul>
-                            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</span></li>
-                            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                                    commodo</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Pencatatan Inventaris Barang dengan Gambar dan
+                                    Kondisi</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Export Laporan ke Excel</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Menggunakan 2 Role Saja</span></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum. </p>
-
+                        <p>Web-based inventory management enables you to have real time visibility of your inventory
+                            whenever you
+                            need it. </p>
                     </div>
-
                 </div>
-
             </div>
-
         </section><!-- /About Section -->
-
-
-
     </main>
 
     <footer id="footer" class="footer dark-background">
@@ -164,10 +140,6 @@
                         Reserved</span>
                 </div>
                 <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you've purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
                         href="https://themewagon.com">ThemeWagon</a>
                 </div>
@@ -183,16 +155,13 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('landing/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('landing/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('landing/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('landing/assets/vendor/php-email-form/validate.js') }}" defer></script>
+    <script src="{{ asset('landing/assets/vendor/aos/aos.js') }}" defer></script>
+    <script src="{{ asset('landing/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}" defer></script>
 
     <!-- Main JS File -->
-    <script src="{{ asset('landing/assets/js/main.js') }}"></script>
+    <script src="{{ asset('landing/assets/js/main.js') }}" defer></script>
 
 </body>
 
