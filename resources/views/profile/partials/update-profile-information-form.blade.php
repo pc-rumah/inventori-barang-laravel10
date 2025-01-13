@@ -18,7 +18,7 @@
                         <x-input-error class="mt-2" :messages="$errors->get('name')" />
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Password</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" value="{{ old('email', $user->email) }}"
                             name="email" id="email">
                         <x-input-error class="mt-2" :messages="$errors->get('email')" />
