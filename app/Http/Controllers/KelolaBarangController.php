@@ -181,7 +181,7 @@ class KelolaBarangController extends Controller
         // ambil data barang yang akan di hapus
         $barang = Barang::find($id);
 
-        // pastikan data barang di temukan
+        // pastikan data barang tidak di temukan
         if (!$barang) {
             return redirect()->route('barang.index')->with('error', 'Data Barang Tidak Ditem
             ukan');

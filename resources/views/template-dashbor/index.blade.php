@@ -24,7 +24,6 @@
         @include('template-dashbor.sidebar')
         {{-- sidebar --}}
 
-
         <!--  Main wrapper -->
         <div class="body-wrapper">
             @include('template-dashbor.header')
@@ -38,8 +37,6 @@
     <script src="{{ asset('dashbor/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dashbor/assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('dashbor/assets/js/app.min.js') }}"></script>
-    <script src="{{ asset('dashbor/assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('dashbor/assets/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('dashbor/assets/js/dashboard.js') }}"></script>
     <script src="https://kit.fontawesome.com/6eb7d2936c.js" crossorigin="anonymous"></script>
     <script>
